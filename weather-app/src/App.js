@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './App.css'
 
 function App() {
@@ -9,8 +10,8 @@ function App() {
 
   const handleSearch = (event) => {
     if (event.key === "Enter") {
-      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=${apiKey}`)
-        .then(response => response.json())
+      axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=${apiKey}`)
+        .then(response => response.data)
         .then(result => {
           setWeather(result);
           setLocation(''); 
