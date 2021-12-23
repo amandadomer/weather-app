@@ -1,12 +1,13 @@
 .header {
-  font-size: 60px;
+  font-size: 58px;
   font-family: 'Courier New', Courier, monospace;
-  text-align: center;
   padding-top: 50px;
 }
 
 .container {
   background-color: rgba(255, 192, 203, 0.363);
+  border-radius: 10px;
+  margin-top: 40px;
 }
 
 .search {
@@ -19,7 +20,7 @@
 }
 
 .info {
-  font-size: 26px;
+  font-size: 25px;
   font-family: 'Courier New', Courier, monospace;
   padding-top: 20px;
 }

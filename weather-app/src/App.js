@@ -10,7 +10,7 @@ function App() {
   const handleSearch = (event) => {
     if (event.key === "Enter") {
       fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=${apiKey}`)
-        .then(res => res.json())
+        .then(response => response.json())
         .then(result => {
           setWeather(result);
           setLocation(''); 
@@ -21,18 +21,19 @@ function App() {
   return (
     <div className="container">
       <span className="header">Where would you rather be today?</span>
-        <div className="bar">
+        <div>
           <input 
             type="text"
             className="search"
-            placeholder="Search for a city"
+            placeholder="Search for a city to view its weather"
             onChange={event => setLocation(event.target.value)}
             value={location}
-            onKeyPress={handleSearch}/>
+            onKeyPress={handleSearch}/>  
         </div>
+        
         {(typeof weather.main != "undefined") ? (
         <div className="info">
-        In {weather.name} the temperature is currently {Math.round(weather.main.temp)}°F with {weather.weather[0].description}. That sounds nice.
+        In {weather.name} the temperature is currently {Math.round(weather.main.temp)}°F with {weather.weather[0].description}. 
         </div>
         ) : ('')}
     </div>
